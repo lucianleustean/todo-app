@@ -1,12 +1,13 @@
+'use strict'
+
 window.TodoApp =
   Models: {}
   Collections: {}
   Views: {}
   Routers: {}
   init: ->
-    'use strict'
-    console.log 'Hello from Backbone!'
+    new TodoApp.Views.Todos
+      collection: new TodoApp.Collections.Todos()
 
 $ ->
-  'use strict'
-  TodoApp.init();
+  TodoApp.init()
