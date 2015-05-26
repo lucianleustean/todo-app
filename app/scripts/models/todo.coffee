@@ -1,13 +1,10 @@
-'use strict';
+'use strict'
 
 class TodoApp.Models.Todo extends Backbone.Model
-  url: '',
 
-  initialize: () ->
+  defaults:
+    title: ''
+    completed: false
 
-  defaults: {}
-
-  validate: (attrs, options) ->
-
-  parse: (response, options) ->
-    response
+  toggle: ->
+    @save completed: !@get('completed')
