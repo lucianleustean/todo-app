@@ -100,14 +100,17 @@ input:checked ~ span {
   }
 }
 
-.input-append {
-  .input-field {
-    background-color: $white;
-    font-size: 18px;
-    line-height: 22px;
-    margin-bottom: 1em;
-    width: 91%;
-  }
+.input-append .input-field {
+  background-color: $white;
+  background-image: url('/images/pencil.svg');
+  background-position: 11px 8px;
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 1em;
+  padding-left: 53px;
+  width: 76%;
 }
 
 .btn {
