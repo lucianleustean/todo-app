@@ -1,12 +1,28 @@
-$body-color: #fafafa;
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:700,400);
+@import 'compass/css3/transition';
+
+$white: #fff;
+$light-grey: #3c3c3c;
+$light-blue: #3498db;
+$dark-blue: #0493bd;
+
+$body-color: $light-blue;
+$content-color: #2980b9;
+$text-color: $white;
+
+$desktop-width: 1280px;
+$tablet-width: 768px;
+$phone-width: 449px;
 
 body {
   background: $body-color;
+  font-family: Open Sans;
+  font-size: 18px;
 }
 
-.hero-unit {
-  margin: 50px auto 0;
-  width: 300px;
+h1 {
+  padding-bottom: 1em;
+  text-align: center;
 }
 
 form {
@@ -20,11 +36,30 @@ li form {
 }
 
 ul {
+  clear: both;
   list-style: none;
 }
 
-li form {
-  display: none;
+li {
+  background: $white;
+  color: $light-grey;
+  display: block;
+  line-height: 50px;
+  margin-bottom: 15px;
+  overflow: hidden;
+
+  form {
+    display: none;
+  }
+}
+
+.hero-unit {
+  background: $content-color;
+  color: $text-color;
+  margin: 50px auto 0;
+  padding: 5% 10%;
+  vertical-align: middle;
+  width: 60%;
 }
 
 .editing {
@@ -37,6 +72,102 @@ li form {
   }
 }
 
+.input-fields {
+  float: left;
+  width: 70%;
+}
+
+.submit {
+  float: right;
+  width: 30%;
+
+}
+
 input:checked ~ span {
   text-decoration: line-through;
+}
+
+.input-field {
+  color: $light-grey;
+  padding: 13px;
+
+  &:focus {
+    background: $white;
+    border: 3px solid $light-blue;
+    box-shadow: 0;
+    outline: none;
+    padding: 13px;
+  }
+}
+
+.input-append {
+  .input-field {
+    background-color: $white;
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 1em;
+    width: 91%;
+  }
+}
+
+.btn {
+  @include transition(all .3s);
+  background-color: $light-blue;
+  border: $white solid 4px;
+  color: $white;
+  cursor: pointer;
+  float: left;
+  font-size: 18px;
+  padding-bottom: 12px;
+  padding-top: 12px;
+  width: 100%;
+}
+
+.btn:hover {
+  background-color: rgba(0, 0, 0, 0);
+  color: $dark-blue;
+}
+
+.submit:hover {
+  color: $light-blue;
+
+  .ease {
+    background-color: $white;
+    width: 100%;
+  }
+}
+
+.ease {
+  @include transition(.3s ease);
+  background-color: $white;
+  height: 52px;
+  width: 0;
+}
+
+@media only screen and (min-width: $desktop-width) {
+  .hero-unit {
+    margin-top: 10%;
+    width: 700px;
+  }
+}
+
+@media only screen and (max-width: $tablet-width) {
+  .hero-unit {
+    padding: 7%;
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: $phone-width) {
+
+  .input-fields {
+    float: none;
+    width: 100%;
+  }
+
+  .submit {
+    float: none;
+    margin-bottom: 10px;
+    width: 100%;
+  }
 }
