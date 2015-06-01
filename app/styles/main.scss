@@ -5,6 +5,12 @@ $white: #fff;
 $light-grey: #3c3c3c;
 $light-blue: #3498db;
 $dark-blue: #0493bd;
+$darker-blue: #6c97ab;
+$light-green: #a2ded0;
+$dark-green: #7daba0;
+$light-red: #ff5847;
+$dark-red: #e2796c;
+$darker-red: #dd5244;
 
 $body-color: $light-blue;
 $content-color: #2980b9;
@@ -101,9 +107,7 @@ input:checked ~ span {
 }
 
 .input-append .input-field {
-  background-color: $white;
-  background-image: url('/images/pencil.svg');
-  background-position: 11px 8px;
+  background: $white url('/images/pencil.svg') 11px 8px;
   background-repeat: no-repeat;
   background-size: 30px 30px;
   font-size: 18px;
@@ -115,7 +119,7 @@ input:checked ~ span {
 
 .btn {
   @include transition(all .3s);
-  background-color: $light-blue;
+  background-color: $darker-blue;
   border: $white solid 4px;
   color: $white;
   cursor: pointer;
@@ -145,6 +149,39 @@ input:checked ~ span {
   background-color: $white;
   height: 52px;
   width: 0;
+}
+
+.checkbox {
+  display: none;
+
+  &:checked + span {
+    background: $light-green url('/images/check.svg') no-repeat 7% center;
+    background-color: $light-green;
+    background-size: 22px 22px;
+  }
+
+  &:checked:hover + span {
+    background: $dark-red url('/images/check.svg') no-repeat 7% center;
+    background-size: 22px 22px;
+    color: rgba(255, 255, 255, .5);
+  }
+}
+
+span {
+  background: $dark-red url('/images/unchecked.svg') no-repeat 7% center;
+  background-size: 22px 22px;
+  color: $white;
+  cursor: pointer;
+  display: block;
+  letter-spacing: 4px;
+  text-align: center;
+  width: 100%;
+
+  &:hover {
+    background: $darker-red url('/images/checking.svg') no-repeat 7% center;
+    background-size: 23px 23px;
+    text-decoration: line-through;
+  }
 }
 
 @media only screen and (min-width: $desktop-width) {
